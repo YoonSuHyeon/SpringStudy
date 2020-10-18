@@ -22,4 +22,11 @@
  # 17.스프링 빈
  # 18.스프링 빈 조회
  # 19.BeanFactory 와 ApplicationContext
- # 20.*XML 설정
+ # 20.XML 설정
+ # 21.스프링 빈 설정 메타 정보 -BeanDefinition
+ # 22.annotated BeanDefinitionReader 
+ # 23.XmlBeanDefinitionReader
+ # 24.BeanDefinition
+ # 25.웹 애플리케이션과 싱글톤
+ # 26.싱글톤 패턴
+
