@@ -51,5 +51,10 @@
  # 46.애노테이션 @PostConstruct,@PreDestory
  # 47.빈 스코프
  # 48.프로토타입 스코프
+ # 49.프로토타입 스코프 – 싱글톤 빈과 함께 사용시 Provider로 문제해결
+ # 50.ObjectFactory,ObjectProvider
+ # 51.JSR-330Provider
+ # 52.웹 스코프
+
  
 
