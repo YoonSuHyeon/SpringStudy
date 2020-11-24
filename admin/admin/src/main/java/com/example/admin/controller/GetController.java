@@ -23,11 +23,13 @@ public class GetController {
     }
 
     @GetMapping("/getMultiParameter") // localhost:8080/api/getMultiParameter?account=abcd&email=study@gmail.com&page=10
-    public String getMultiParameter(SearchParam searchParam) {
+    public SearchParam getMultiParameter(SearchParam searchParam) {
         System.out.println(searchParam.getAccount());
         System.out.println(searchParam.getEmail());
         System.out.println(searchParam.getPage());
 
-        return "OK";
+        //{"accout" : "" , "email" : "" , "page" : 0} json  스프링 부트에서 Jackson라이브러리를 통해서 Json형태로 바꿔줌 객체를 리턴한다는것은 Json
+
+        return searchParam;
     }
 }
