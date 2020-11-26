@@ -1,8 +1,8 @@
 spring:
   jpa:
     show-sql: true
-    hibernate:
-      ddl-auto: 'create-drop'
+   # hibernate:
+    #  ddl-auto: 'create'
   datasource:
     url: jdbc:mysql://localhost:3306/study?useSSL=false&useUnicode=true&serverTimezone=Asia/Seoul&allowPublicKeyRetrieval=true&createDatabaseIfNotExist=true
     username: root
