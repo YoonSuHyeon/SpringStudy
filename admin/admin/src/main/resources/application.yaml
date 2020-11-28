@@ -1,12 +1,12 @@
 spring:
   jpa:
     show-sql: true
-   # hibernate:
-    #  ddl-auto: 'create'
+    hibernate:
+     ddl-auto: 'create-drop'
   datasource:
     url: jdbc:mysql://localhost:3306/study?useSSL=false&useUnicode=true&serverTimezone=Asia/Seoul&allowPublicKeyRetrieval=true&createDatabaseIfNotExist=true
     username: root
-    password: 4753
+    password: youn4948
     driver-class-name: com.mysql.cj.jdbc.Driver
 logging:
   level:

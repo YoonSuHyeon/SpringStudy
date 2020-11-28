@@ -31,7 +31,10 @@ public class UserServiceImpl implements  UserService {
 
     @Override
     public String login(UserLoginDto userLoginDto) {
-       if(userRepository.findByUser(userLoginDto)){
+        UserDto user = userRepository.findById(userLoginDto.getId());
+
+
+        if(userRepository.findById(userLoginDto.getId())
            return "이미 존재하는 아이디";
        }
         return "사용할 수 있는 아이디";

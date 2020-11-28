@@ -60,10 +60,20 @@ public class UserRepositoryTest  {
     }
     @Test
     public void read(){
-        Optional<User> id = userRepository.findById(3L);
-        User user = id.get();
-        List<OrderDetail> orderDetailList = user.getOrderDetailList();
-        orderDetailList.stream().forEach(it-> System.out.println("it = " + it));
+
+        User user = new User();
+        user.setAccount("TestUser1");
+        user.setEmail("TestUser1@naver.com");
+        user.setPhoneNumber("010-1111-1111");
+        user.setCreatedAt(LocalDateTime.now());
+        user.setCreatedBy("admin");
+        User findUser = userRepository.save(user);
+
+        Optional<User> repositoryByAccount = userRepository.findByAccount("TestUser1");
+        if(repositoryByAccount.isPresent()){
+            Assertions.assertThat(repositoryByAccount.get()).isSameAs(findUser);
+        }
+
 
 
     }

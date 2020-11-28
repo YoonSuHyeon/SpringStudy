@@ -16,20 +16,7 @@ public class MemoryUserRepository implements  UserRepository {
     }
 
     @Override
-    public boolean findByUser(UserLoginDto userLoginDto) {
-        UserDto userDto = store.get(userLoginDto);
-        if (userDto.getPassword().equals(userLoginDto.getPassWord())) {
-            return true;
-        }
-        return false;
-    }
-
-    @Override
-    public boolean findById(String id) {
-
-       if(store.containsKey(id)){
-           return true;
-       }
-        return false;
+    public Object findById(String id) {
+        return store.ge
     }
 }
