@@ -11,10 +11,11 @@ import java.util.Optional;
 public interface UserRepository extends JpaRepository<User,Long> {
 
 
-    //select * from user hwere accout = ? << test03,test04
+   /* //select * from user hwere accout = ? << test03,test04
     Optional<User> findByAccount(String account);
 
     Optional<User> findByEmail(String eamil);
     //select * from user hwere accout = ? and email =? << test03,test04
-    Optional<User> findByAccountAndEmail(String account, String email);
+    Optional<User> findByAccountAndEmail(String account, String email);*/
+
 }

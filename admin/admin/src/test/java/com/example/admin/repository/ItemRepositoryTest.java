@@ -38,6 +38,8 @@ class ItemRepositoryTest {
         item.setPrice(100000);
         item.setContent("삼성 노트북");
 
+
+        //select * from category where type = 'COMPUTER'
         Item newItem = itemRepository.save(item);
 
         Optional<Item> findItem = itemRepository.findById(1L);
