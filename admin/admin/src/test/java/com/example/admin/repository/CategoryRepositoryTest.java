@@ -61,7 +61,7 @@ class CategoryRepositoryTest {
 
 
         //조회
-        Optional<Category> categoryRepositoryById = categoryRepository.findById(newCategory.getId());
+        Optional<Category> categoryRepositoryById = categoryRepository.findByType("COMPUTER");
 
         categoryRepositoryById.ifPresent(c->{
             System.out.println(c.getId());

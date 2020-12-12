@@ -39,24 +39,12 @@ public class UserRepositoryTest  {
     @Test
     public void create(){
         //String sql = insert into user(%s,%s,%d) value(account,email,age);
-        User user = new User();
-        user.setAccount("TestUser3");
-        user.setEmail("TestUser1@naver.com");
-        user.setPhoneNumber("010-1111-1111");
-        user.setCreatedAt(LocalDateTime.now());
-        user.setCreatedBy("admin");
-        User user1 = userRepository.save(user);
-        System.out.println("user1 = " + user1);
+        String account = "Test01";
+        String password = "Test01";
+        String status = "REGISTERED";
+        String email = "Test01@gmail.com";
+        String phoneNumber = "010-1111-2222";
 
-
-        User user3 = new User();
-        user3.setAccount("TestUser1");
-        user3.setEmail("TestUser1@naver.com");
-        user3.setPhoneNumber("010-1111-1111");
-        user3.setCreatedAt(LocalDateTime.now());
-        user3.setCreatedBy("admin");
-        User user4 = userRepository.save(user3);
-        System.out.println("user1 = " + user4);
     }
     @Test
     public void read(){
