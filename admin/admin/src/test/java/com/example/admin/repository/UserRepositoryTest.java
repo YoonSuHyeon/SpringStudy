@@ -15,6 +15,7 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.Assert;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -44,11 +45,56 @@ public class UserRepositoryTest  {
         String status = "REGISTERED";
         String email = "Test01@gmail.com";
         String phoneNumber = "010-1111-2222";
+        LocalDateTime registeredAt = LocalDateTime.now();
+        LocalDateTime createdAt = LocalDateTime.now();
+        String createdBy = "AdminServer";
+
+
+        User user = new User();
+        user.setAccount(account);
+        user.setPassword(password);
+        user.setStatus(status);
+        user.setEmail(email);
+        user.setPhoneNumber(phoneNumber);
+        user.setRegisteredAt(registeredAt);
+        user.setCreatedAt(createdAt);
+        user.setCreatedBy(createdBy);
+
+        User save = userRepository.save(user);
+        User userFind = userRepository.findFirstByPhoneNumberOrderByIdDesc("010-1111-2222");
+
+        Assertions.assertThat(userFind).isNotNull();
+        Assertions.assertThat(userFind).isSameAs(save);
+
 
     }
     @Test
     public void read(){
+        String account = "Test01";
+        String password = "Test01";
+        String status = "REGISTERED";
+        String email = "Test01@gmail.com";
+        String phoneNumber = "010-1111-2222";
+        LocalDateTime registeredAt = LocalDateTime.now();
+        LocalDateTime createdAt = LocalDateTime.now();
+        String createdBy = "AdminServer";
 
+
+        User user = new User();
+        user.setAccount(account);
+        user.setPassword(password);
+        user.setStatus(status);
+        user.setEmail(email);
+        user.setPhoneNumber(phoneNumber);
+        user.setRegisteredAt(registeredAt);
+        user.setCreatedAt(createdAt);
+        user.setCreatedBy(createdBy);
+
+        User save = userRepository.save(user);
+        User userFind = userRepository.findFirstByPhoneNumberOrderByIdDesc("010-1111-2222");
+
+        Assertions.assertThat(userFind).isNotNull();
+        Assertions.assertThat(userFind).isSameAs(save);
 
 
 
