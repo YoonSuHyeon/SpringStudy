@@ -20,7 +20,6 @@ public class OrderDetail {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private LocalDateTime orderAt;
 
     private String status;
 
@@ -34,4 +33,7 @@ public class OrderDetail {
     private String createdBy;
     private LocalDateTime updatedAt;
     private String updatedBy;
+    private Long itemId;
+    private Long orderGroupId;
+
 }

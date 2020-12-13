@@ -21,8 +21,8 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
-
-@DataJpaTest
+@SpringBootTest
+//@DataJpaTest
 //@Transactional(propagation = Propagation.NOT_SUPPORTED)// JPA 테스트 관련 컴포넌트만 Import
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)    // 실제 db 사용
 @DisplayName("UserRepositoryTest 테스트")
@@ -91,10 +91,7 @@ public class UserRepositoryTest  {
         user.setCreatedBy(createdBy);
 
         User save = userRepository.save(user);
-        User userFind = userRepository.findFirstByPhoneNumberOrderByIdDesc("010-1111-2222");
 
-        Assertions.assertThat(userFind).isNotNull();
-        Assertions.assertThat(userFind).isSameAs(save);
 
 
 
