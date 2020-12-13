@@ -4,6 +4,7 @@ package com.example.admin.repository;
 
 import com.example.admin.model.entity.Item;
 import com.example.admin.model.entity.OrderDetail;
+import com.example.admin.model.entity.OrderGroup;
 import com.example.admin.model.entity.User;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
@@ -34,6 +35,9 @@ public class UserRepositoryTest  {
     @Autowired
     private OrderDetailRepository orderDetailRepository;
 
+
+    @Autowired
+    private OrderGroupRepository orderGroupRepository;
     @Autowired
     private ItemRepository itemRepository;
 
@@ -68,16 +72,19 @@ public class UserRepositoryTest  {
 
 
     }
+    @Transactional
     @Test
     public void read(){
-        String account = "Test01";
+
+
+        /*String account = "Test01";
         String password = "Test01";
         String status = "REGISTERED";
         String email = "Test01@gmail.com";
         String phoneNumber = "010-1111-2222";
         LocalDateTime registeredAt = LocalDateTime.now();
         LocalDateTime createdAt = LocalDateTime.now();
-        String createdBy = "AdminServer";
+       String createdBy = "AdminServer";
 
 
         User user = new User();
@@ -89,10 +96,13 @@ public class UserRepositoryTest  {
         user.setRegisteredAt(registeredAt);
         user.setCreatedAt(createdAt);
         user.setCreatedBy(createdBy);
+        */
 
-        User save = userRepository.save(user);
+        User save = userRepository.findFirstByPhoneNumberOrderByIdDesc("010-1111-2222");
+        Optional<OrderGroup> byId = orderGroupRepository.findById(1L);
+        byId.get().setUser(save);
 
-
+        save.getOrderGroupList().stream().forEach(it -> System.out.println("it = " + it));
 
 
 

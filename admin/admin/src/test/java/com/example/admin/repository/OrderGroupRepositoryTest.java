@@ -33,7 +33,7 @@ class OrderGroupRepositoryTest {
         orderGroup.setOrderAt(LocalDateTime.now().minusDays(2));
         orderGroup.setArrivalDate(LocalDateTime.now());
         orderGroup.setCreatedBy("AdminServer");
-        orderGroup.setUserId(3L);
+        //orderGroup.setUserId(3L);
 
 
         OrderGroup save = orderGroupRepository.save(orderGroup);

@@ -3,6 +3,7 @@ package com.example.admin.model.entity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -13,6 +14,8 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+
+@ToString(exclude = {"orderGroupList"})
 @Table(name="user") //클래스명과 테이블명이 동일하다면 생략가능
 public class User {
     @Id
@@ -40,6 +43,8 @@ public class User {
     private LocalDateTime updatedAt;
     private String updatedBy;
 
-
+    //User 1 : N  OrderGroup
+    @OneToMany(fetch = FetchType.LAZY,mappedBy = "user")
+    private List<OrderGroup> orderGroupList;
 
 }
