@@ -1,6 +1,7 @@
 package com.example.admin.repository;
 
 import com.example.admin.model.entity.OrderGroup;
+import com.example.admin.model.entity.User;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +10,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -20,8 +22,14 @@ class OrderGroupRepositoryTest {
     @Autowired
     private OrderGroupRepository orderGroupRepository;
 
+    @Autowired
+    private UserRepository userRepository;
     @Test
     public void create(){
+
+        Optional<User> byId = userRepository.findById(3L);
+
+
         OrderGroup orderGroup = new OrderGroup();
         orderGroup.setStatus("COMPLETE");
         orderGroup.setOrderType("ALL");
@@ -33,7 +41,8 @@ class OrderGroupRepositoryTest {
         orderGroup.setOrderAt(LocalDateTime.now().minusDays(2));
         orderGroup.setArrivalDate(LocalDateTime.now());
         orderGroup.setCreatedBy("AdminServer");
-        //orderGroup.setUserId(3L);
+
+        orderGroup.setUser(byId.get());
 
 
         OrderGroup save = orderGroupRepository.save(orderGroup);

@@ -99,10 +99,9 @@ public class UserRepositoryTest  {
         */
 
         User save = userRepository.findFirstByPhoneNumberOrderByIdDesc("010-1111-2222");
-        Optional<OrderGroup> byId = orderGroupRepository.findById(1L);
-        byId.get().setUser(save);
 
-        save.getOrderGroupList().stream().forEach(it -> System.out.println("it = " + it));
+
+        save.getOrderGroupList().stream().forEach(it -> System.out.println("연관관계 = " + it));
 
 
 
