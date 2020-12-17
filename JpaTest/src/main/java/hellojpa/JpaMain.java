@@ -16,10 +16,42 @@ public class JpaMain
         ts.begin();
 
         try{
-            /*수정*/
+
+            //영속
+            Member member1 = new Member(150L, "A");
+            Member member2 = new Member(160L, "B");
+
+            em.persist(member1);
+            em.persist(member2);
+            System.out.println("=====================");
+            ts.commit();
+
+            /*
+            //비영속
+            Member member = new Member();
+            member.setId(101L);
+            member.setName("HelloJPA");
+            //영속
+            System.out.println("=== BEFORE ===" );
+            em.persist(member);
+            System.out.println("=== AFTER ===" );
+
+
+            //1차캐시를 저장하기 때문에 select문을 하지 않는다.
+            Member findMember = em.find(Member.class, 101L);
+            */
+
+
+            //지우는것
+            //em.detach(member);
+            
+            
+            
+            /*수정
+             
             Member member = em.find(Member.class, 1L);
             member.setName("HelloJPA");
-            ts.commit();
+            ts.commit();*/
             
             /*삭제
             Member member = em.find(Member.class, 1L);
