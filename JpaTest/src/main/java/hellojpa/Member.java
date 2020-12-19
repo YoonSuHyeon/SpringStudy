@@ -3,9 +3,11 @@ package hellojpa;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 
-@Entity
+@Entity //JPA가 관리한다.
+//@Table(name ="MBR")
 public class Member {
     @Id
     private  Long id;
